@@ -33,7 +33,7 @@ local Section = Tab:CreateSection("Auto-Farm")
 
 local Toggle = Tab:CreateToggle({
    Name = "Auto Farm (BETA)",
-   CurrentValue = true,
+   CurrentValue = false,
    Flag = "Toggle1",
    Callback = function(Value)
    while wait() do 
