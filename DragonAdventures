@@ -29,20 +29,27 @@ local Window = Rayfield:CreateWindow({
 
 local Tab = Window:CreateTab("Scripts", 4483362458)
 
-local Section = Tab:CreateSection("Auto-Farm")
+local Section = Tab:CreateSection("Auto Farming")
 
-local Toggle = Tab:CreateToggle({
-   Name = "Auto Farm (BETA)",
-   CurrentValue = false,
-   Flag = "AutoFarmToggle",
-   Callback = function(Value)
-   while wait() do 
+getgenv().AutoFarmEggOriginEgg = true
+
+function AutoFarmEggOriginEgg()
+   while getgenv().AutoFarmEggOriginEgg == true do
    task.wait(0.01) 
    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.Interactions.Nodes.Harvest.Eggs.ActiveNodes:GetChildren()[math.random(1,4)].Base.CFrame
 
 game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("SetCollectEggRemote"):InvokeServer((math.random(3,9)))
 
 game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("CollectEggRemote"):InvokeServer((math.random(3,9)))
-    end
-end
+         end
+      end
+
+local Toggle = Tab:CreateToggle({
+   Name = "Auto Farm Egg: Origin Egg",
+   CurrentValue = false,
+   Flag = "AutoFarmToggle",
+   Callback = function(Value)
+   getgenv().AutoFarmEggOriginEgg = Value
+   AutoFarmEggOriginEgg()
+        end,
 })
