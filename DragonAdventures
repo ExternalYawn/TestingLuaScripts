@@ -3,7 +3,7 @@ local Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/shle
 
 local Window = Rayfield:CreateWindow({
    Name = "Dragon Adventures",
-   LoadingTitle = "Rayfield Interface Suite",
+   LoadingTitle = "We Like Duping On This Shit Game!",
    LoadingSubtitle = "Bangers Lmao",
    ConfigurationSaving = {
       Enabled = false,
@@ -27,14 +27,17 @@ local Window = Rayfield:CreateWindow({
    }
 })
 
-local Tab = Window:CreateTab("Scripts", 4483362458)
+local AutoFarming = Window:CreateTab("AutoFarming", 4483362458)
+local Eggs = Window:CreateTab("Eggs", 4483362458)
+local Teleports = Window:CreateTab("Teleports", 4483362458)
+local CreditsAndDiscord = Window:CreateTab("Credits & Discord", 4483362458)
 
-local Section = Tab:CreateSection("Auto Farming")
+-------------------------------------------------
 
-getgenv().AutoFarmEggOriginEgg = true
+getgenv().AutoFarmEggs = true
 
-function AutoFarmEggOriginEgg()
-   while getgenv().AutoFarmEggOriginEgg == true do
+function AutoFarmEggs()
+   while getgenv().AutoFarmEggs == true do
    task.wait(0.01) 
    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.Interactions.Nodes.Harvest.Eggs.ActiveNodes:GetChildren()[math.random(1,4)].Base.CFrame
 
@@ -44,12 +47,34 @@ game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Colle
          end
       end
 
-local Toggle = Tab:CreateToggle({
-   Name = "Auto Farm Egg: Origin Egg",
+local Toggle = Eggs:CreateToggle({
+   Name = "Auto Farm Eggs In Any World",
    CurrentValue = false,
-   Flag = "AutoFarmToggle",
+   Flag = "AutoEggToggle",
    Callback = function(Value)
-   getgenv().AutoFarmEggOriginEgg = Value
-   AutoFarmEggOriginEgg()
+   getgenv().AutoFarmEggs = Value
+   AutoFarmEggs()
+        end,
+})
+
+-------------------------------------------------
+
+getgenv().AutoAppleFarm = true
+
+function AutoAppleFarm()
+   while getgenv().AutoAppleFarm == true do
+   task.wait(0.01)
+   game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("HarvestPlantRemote"):InvokeServer(math.random(1,100))
+
+         end
+      end
+
+local Toggle = AutoFarming:CreateToggle({
+   Name = "Apple AutoFarm",
+   CurrentValue = false,
+   Flag = "AutoAppleFarmToggle",
+   Callback = function(Value)
+   getgenv().AutoAppleFarm = Value
+   AutoAppleFarm()
         end,
 })
