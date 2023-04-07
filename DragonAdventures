@@ -37,7 +37,7 @@ local Toggle = Tab:CreateToggle({
    Flag = "AutoFarmToggle",
    Callback = function(Value)
    while wait() do 
-   task.wait(1) 
+   task.wait(0.01) 
    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.Interactions.Nodes.Harvest.Eggs.ActiveNodes:GetChildren()[math.random(1,4)].Base.CFrame
 
 game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("SetCollectEggRemote"):InvokeServer((math.random(3,9)))
