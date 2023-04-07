@@ -33,19 +33,16 @@ local Section = Tab:CreateSection("Auto-Farm")
 
 local Toggle = Tab:CreateToggle({
    Name = "Auto Farm (BETA)",
-   CurrentValue = false,
+   CurrentValue = true,
    Flag = "Toggle1",
    Callback = function(Value)
-   while wait() do
-   wait(0.5) 
+   while wait() do 
    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.Interactions.Nodes.Harvest.Eggs.ActiveNodes:GetChildren()[math.random(1,4)].Base.CFrame
-   local args = {
-    [1] = "1"
-}
 
-game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("SetCollectEggRemote"):InvokeServer((math.random(4,9)))
+task.wait(0.01)
+game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("SetCollectEggRemote"):InvokeServer((math.random(3,9)))
 
-game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("CollectEggRemote"):InvokeServer((math.random(4,9)))
+game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("CollectEggRemote"):InvokeServer((math.random(3,9)))
                                     end
                                 end
 })
