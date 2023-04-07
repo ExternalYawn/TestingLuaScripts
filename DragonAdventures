@@ -43,9 +43,9 @@ local Toggle = Tab:CreateToggle({
     [1] = "1"
 }
 
-game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("SetCollectEggRemote"):InvokeServer((math.random(1,9)))
+game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("SetCollectEggRemote"):InvokeServer((math.random(4,9)))
 
-game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("CollectEggRemote"):InvokeServer((math.random(1,9)))
+game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("CollectEggRemote"):InvokeServer((math.random(4,9)))
                                     end
                                 end
 })
