@@ -3,8 +3,8 @@ local Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/shle
 
 local Window = Rayfield:CreateWindow({
    Name = "Dragon Adventures",
-   LoadingTitle = "We Like Duping On This Shit Game!",
-   LoadingSubtitle = "Bangers Lmao",
+   LoadingTitle = "Loading Dragon Adventures...",
+   LoadingSubtitle = "Best Script Out!",
    ConfigurationSaving = {
       Enabled = false,
       FolderName = nil,
@@ -27,28 +27,65 @@ local Window = Rayfield:CreateWindow({
    }
 })
 
+------------------------- SECTIONS -------------------------
 local AutoFarming = Window:CreateTab("AutoFarming", 4483362458)
 local Eggs = Window:CreateTab("Eggs", 4483362458)
 local Teleports = Window:CreateTab("Teleports", 4483362458)
 local CreditsAndDiscord = Window:CreateTab("Credits & Discord", 4483362458)
 
--------------------------------------------------
+------------------------- VARIABLES -------------------------
+
+local TweenService = game:GetService("TweenService")
+
+------------------------- PLAYER(S) VARIABLES -------------------------
+
+local Players = game:GetService("Players")
+local Player = game.Players.LocalPlayer
+local Character = Player.Character
+local HumanoidRootPart = Character.HumanoidRootPart
+local Humanoid = Player.Character.Humanoid
+
+------------------------- SCRIPTS OF SECTIONS -------------------------
+
+------------------------- AUTOFARM -------------------------
+
+getgenv().AutoFarmFruits = true
+
+function AutoFarmFruits()
+   while getgenv().AutoFarmFruits == true do
+   task.wait(0.01)
+   game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("HarvestPlantRemote"):InvokeServer(math.random(1,100))
+
+         end
+      end
+
+local Toggle = AutoFarming:CreateToggle({
+   Name = "AutoFarm Fruits [ANY FRUIT]",
+   CurrentValue = false,
+   Flag = "AutoFarmFruitsToggle",
+   Callback = function(Value)
+   getgenv().AutoFarmFruits = Value
+   AutoFarmFruits()
+        end,
+})
+
+------------------------- EGGS -------------------------
 
 getgenv().AutoFarmEggs = true
 
 function AutoFarmEggs()
    while getgenv().AutoFarmEggs == true do
    task.wait(0.01) 
-   game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.Interactions.Nodes.Harvest.Eggs.ActiveNodes:GetChildren()[math.random(1,4)].Base.CFrame
+   local EggsPath = game.Workspace.Interactions.Nodes.Harvest.Eggs.ActiveNodes:GetChildren()[math.random(1,4)]
+   HumanoidRootPart.CFrame = EggsPath.Base.CFrame
 
-game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("SetCollectEggRemote"):InvokeServer((math.random(3,9)))
-
-game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("CollectEggRemote"):InvokeServer((math.random(3,9)))
+   game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("SetCollectEggRemote"):InvokeServer((math.random(3,9)))
+   game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("CollectEggRemote"):InvokeServer((math.random(3,9)))
          end
-      end
+    end
 
 local Toggle = Eggs:CreateToggle({
-   Name = "Auto Farm Eggs In Any World",
+   Name = "Auto Farm Eggs [IN ANY WORLD]",
    CurrentValue = false,
    Flag = "AutoEggToggle",
    Callback = function(Value)
@@ -57,24 +94,8 @@ local Toggle = Eggs:CreateToggle({
         end,
 })
 
--------------------------------------------------
+------------------------- TELEPORTS -------------------------
 
-getgenv().AutoAppleFarm = true
+------------------------- CREDITS -------------------------
 
-function AutoAppleFarm()
-   while getgenv().AutoAppleFarm == true do
-   task.wait(0.01)
-   game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("HarvestPlantRemote"):InvokeServer(math.random(1,100))
-
-         end
-      end
-
-local Toggle = AutoFarming:CreateToggle({
-   Name = "Apple AutoFarm",
-   CurrentValue = false,
-   Flag = "AutoAppleFarmToggle",
-   Callback = function(Value)
-   getgenv().AutoAppleFarm = Value
-   AutoAppleFarm()
-        end,
-})
+------------------------- RAYFIELD -------------------------
