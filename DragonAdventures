@@ -27,7 +27,8 @@ local Window = Rayfield:CreateWindow({
    }
 })
 
-------------------------- SECTIONS -------------------------
+------------------------- TABS -------------------------
+
 local AutoFarming = Window:CreateTab("AutoFarming", 4483362458)
 local Eggs = Window:CreateTab("Eggs", 4483362458)
 local Teleports = Window:CreateTab("Teleports", 4483362458)
@@ -96,6 +97,30 @@ local Toggle = Eggs:CreateToggle({
 
 ------------------------- TELEPORTS -------------------------
 
+local Section = Teleports:CreateSection("Origin World")
+
+local TeleportToWorldTraveler = Teleports:CreateButton({
+   Name = "Teleport To World Traveler",
+   Callback = function()
+   HumanoidRootPart.CFrame = CFrame.new(-105, 129, -63)
+   end,
+})
+
+local TeleportToGeneralShop = Teleports:CreateButton({
+   Name = "Teleport To General Shop",
+   Callback = function()
+   HumanoidRootPart.CFrame = CFrame.new(-19, 133, 229)
+   end,
+})
+
+local TeleportToWorldShop = Teleports:CreateButton({
+   Name = "Teleport To World Shop",
+   Callback = function()
+   HumanoidRootPart.CFrame = CFrame.new(-108, 129, 229)
+   end,
+})
 ------------------------- CREDITS -------------------------
 
 ------------------------- RAYFIELD -------------------------
+
+-108, 129, 229
