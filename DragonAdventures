@@ -32,6 +32,7 @@ local Window = Rayfield:CreateWindow({
 local AutoFarming = Window:CreateTab("AutoFarming", 4483362458)
 local Eggs = Window:CreateTab("Eggs", 4483362458)
 local Teleports = Window:CreateTab("Teleports", 4483362458)
+local Misc = Window:CreateTab("Misc", 4483362458)
 local CreditsAndDiscord = Window:CreateTab("Credits & Discord", 4483362458)
 
 ------------------------- VARIABLES -------------------------
@@ -119,8 +120,16 @@ local TeleportToWorldShop = Teleports:CreateButton({
    HumanoidRootPart.CFrame = CFrame.new(-108, 129, 229)
    end,
 })
-------------------------- CREDITS -------------------------
+
+------------------------- MISC -------------------------
+
+local LoadInfiniteYield = Misc:CreateButton({
+   Name = "Load Infinite Yield",
+   Callback = function()
+   loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+   end,
+})
+
+------------------------- CREDITS & DISCORD -------------------------
 
 ------------------------- RAYFIELD -------------------------
-
--108, 129, 229
